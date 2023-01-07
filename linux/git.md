@@ -24,7 +24,7 @@ xiaolei@xl-pc:~/learn/learnGit/gittest$ git clone git@github.com:xlccccc/xlccccc
 ```sh
 #git一般连不上
 #clash打开局域网共享，然后
-xiaolei@xl-pc:~/learn/learnGit/gittest$ export ALL_PROXY="http://192.168.31.182:7890"
+xiaolei@xl-pc:~/learn/learnGit/gittest$ export ALL_PROXY="http://192.168.31.165:7890"
 ```
 
 只能保证当前shell是走代理的

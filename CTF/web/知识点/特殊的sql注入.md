@@ -6,7 +6,9 @@
 
 **联合查询**
 
-**堆叠注入**
+> **堆叠注入**
+>
+> **bypass trick**   见 buu - four - [SUCTF 2018]MultiSQL
 
 > **报错注入**
 >

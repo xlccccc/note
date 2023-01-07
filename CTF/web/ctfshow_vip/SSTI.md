@@ -1,6 +1,6 @@
 ## SSTI
 
-+++
+
 
 又名沙盒逃逸
 
@@ -335,7 +335,7 @@ app.py  hack.php  pay.py  phar  ssti  test.py  try.py
 app.py  hack.php  pay.py  phar  ssti  test.py  try.py
 ```
 
-查阅资料发现访问os模块还有从warnings.catch_warnings模块入手的，而这两个模块分别位于元组中的59，60号元素。`__init__`方法用于将对象实例化，在这个函数下我们可以通过funcglobals（或者`__globals`）看该模块下有哪些globals函数（注意返回的是字典），而linecache可用于读取任意一个文件的某一行，而这个函数引用了os模块。
+查阅资料发现访问os模块还有从warnings.catch_warnings模块入手的，而这两个模块分别位于元组中的59，60号元素。`__init__`方法用于将对象实例化，在这个函数下我们可以通过funcglobals（或者`__globals__`）看该模块下有哪些globals函数（注意返回的是字典），而linecache可用于读取任意一个文件的某一行，而这个函数引用了os模块。
 
 于是还可以挖掘到类似payload（注意payload都不是直接套用的，不同环境请自行测试）
 

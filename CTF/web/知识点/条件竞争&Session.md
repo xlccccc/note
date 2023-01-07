@@ -39,10 +39,6 @@
 条件竞争脚本
 
 ```python
-#-- coding:UTF-8 --
-# Author:dota_st
-# Date:2021/2/20 23:51
-# blog: www.wlhhlc.top
 import io
 import requests
 import threading
@@ -326,3 +322,10 @@ Content-Type: image/x-icon
 
 > 流程就是
 >**上传文件 ==> 文件名存入session ==> 访问index.php ==> 反序列化session ==> 反序列化器不同导致反序列化漏洞**
+
+这里可能没说太清楚，我理一下
+
+### 注意
+
+如果你能控制`$_SESSION`的值，你可以利用这种反序列化的不同上传一个`|O:XXX`对象，此时会以你当前的`PHPSESSID`创建一个`sess_PHPSESSID`的文件存放在服务端，然后你再次以该`PHPSESSID`访问这个网页，执行`session_start();`就会对你的`sess_PHPSESSID`的文件进行反序列化，就不是同步进行的，对象可以存储在本地，详见**[Lctf2018 bestphp's revenge]**
+

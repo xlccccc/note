@@ -1,6 +1,0 @@
-我叫肖磊，本次综合排名11，主要学习的是web方向，但这次web题因为实力不足一题没做出来，凭自己的一些misc知识和reverse知识，勉强做出来几个题。然后我的优势可能就是对很多编程语言都有点了解吧，上学期参加学校的星火杯获得了院二等奖，校赛还没开始，参赛作品是用unity做的一个游戏。web方向的语言html，css，javascript和php也都了解一点。起初像转入实验班是因为不太喜欢电信的偏硬件的专业，就想抓住这次转专业机会，随着对web的学习，也培养起了对web的兴趣，现在也很想深入学习web，找队友一起打CTF。所以就希望进入实验班，未来争取做一个宣传实验班时能被提到的人。
-
-
-
-My name is Xiao Lei. This test I ranked 11th. My main subject is web. But this time, I didn't solve one of the web questions due to my lack of strength. With my knowledge of misc and reverse, I managed to solve a few questions. Then my advantage may be that I have a little understanding of many programming languages. I participated in the school's 星火杯 last semester and won the second prize in the school. The entry is a game made with Unity. And I also understand the html,css,javascript and php . At first, it seemed that I was transferred to the experimental class because I didn’t like the hardware major, so I wanted to seize this opportunity to change my major. With the study of the web, I also cultivated my interest in the web, and now I want to study web in depth, find teammates to play CTF together. So I hope to enter the experimental class, and strive to be a person who can be mentioned when promoting the experimental class in the future.
-

